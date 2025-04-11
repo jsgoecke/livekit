@@ -1,0 +1,18 @@
+port: 7880                      # Port for HTTP/WebSocket signaling (Render will map this to 80/443)
+bind_addresses: 0.0.0.0         # Listen on all interfaces
+rtc:
+  use_external_ip: true         # Discover public IP since we’re in a cloud environment&#8203;:contentReference[oaicite:1]{index=1}
+  tcp_port: 7881                # Enable WebRTC over TCP on port 7881 for fallback&#8203;:contentReference[oaicite:2]{index=2}
+  port_range_start: 50000       # UDP port range for media (if UDP were available)&#8203;:contentReference[oaicite:3]{index=3}
+  port_range_end: 60000
+# API keys for authentication – define at least one key/secret pair
+keys:
+  MY_API_KEY: EdKWVEYQf3UBc7iG     # replace with a secure API key & secret
+  B1_API_KEY: nDAvJNn3qkDx6xHH
+# (Optional) TURN configuration for better connectivity
+turn:
+  enabled: true
+  external_tls: true            # Render terminates TLS, so treat traffic as externally TLS-terminated&#8203;:contentReference[oaicite:4]{index=4}
+  tls_port: 443                 # Use 443 for TURN over TLS (allowed through HTTPS)&#8203;:contentReference[oaicite:5]{index=5}
+  domain: livekit.goecke.io  # Domain for TURN server (must match cert, see below)
+
